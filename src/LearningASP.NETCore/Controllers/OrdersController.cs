@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
-
 namespace LearningASP.NETCore.Controllers
 {
     // [Route("api/[controller]")]
@@ -13,19 +12,12 @@ namespace LearningASP.NETCore.Controllers
     {
         [HttpGet]
         [Route("info")]
-        public async Task<ActionResult> Info()
+        public async Task<IActionResult> Info()
         {
             return await Task.Run(() =>
             {
                 return Json(new { name = "irving", age = 25 });
             }).ContinueWith(t => t.Result);
-        }
-
-        [HttpGet]
-        [Route("user")]
-        public ActionResult user()
-        {
-            return Json(new { name = "irving", age = 25 });
         }
 
         // GET: api/values
